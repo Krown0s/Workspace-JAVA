@@ -31,10 +31,7 @@ public class Rationnel {
 	}
 
 	public Rationnel produit(Rationnel r) {
-		long n = this.getNumerateur() * r.getNumerateur();
-		long d = this.getDenominateur() * r.getDenominateur();
-		return new Rationnel(n, d);
-		//return (new Rationnel(this.getNumerateur() * r.getNumerateur(), this.getDenominateur() * r.getDenominateur()));
+		return (new Rationnel(this.getNumerateur() * r.getNumerateur(), this.getDenominateur() * r.getDenominateur()));
 	}
 
 	@Override
@@ -59,14 +56,8 @@ public class Rationnel {
 			return false;
 		if (numerateur != other.numerateur)
 			return false;
-		Rationnel r = (Rationnel) obj;
-		if ((this.reduction().getNumerateur() == r.reduction().getNumerateur()) && (this.reduction().getDenominateur() == r.reduction().getDenominateur())) {
-			return true;
-		}
-		
+		Rationnel r = (Rationnel) obj;	
 		return(((this.reduction().getNumerateur() == r.reduction().getNumerateur()) && (this.reduction().getDenominateur() == r.reduction().getDenominateur())));
-		
-		//return true;
 	}
 
 	private static long pgcd(long a, long b) {
